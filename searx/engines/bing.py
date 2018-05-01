@@ -40,7 +40,11 @@ def request(query, params):
         query=urlencode({'q': query}),
         offset=offset)
 
-    params['url'] = base_url + search_path
+    #params['url'] = base_url + search_path
+    params['url']    = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+    params['header'] =  {"Ocp-Apim-Subscription-Key" :  "a5618309bbb444b59d5bd719575a6d9e"}
+
+
     return params
 
 

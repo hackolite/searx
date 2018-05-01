@@ -13,6 +13,11 @@ from lxml import html
 from searx import logger
 from searx.url_utils import urlencode
 
+
+
+
+import requests
+
 logger = logger.getChild('yandex engine')
 
 # engine dependent config
@@ -42,14 +47,16 @@ def request(query, params):
     host = base_url.format(tld=language_map.get(lang) or default_tld)
     params['url'] = host + search_url.format(page=params['pageno'] - 1,
                                              query=urlencode({'text': query}))
+    #print(params)
+    #params['url'] = "https://yandex.com/search/xml?user=uid-cru23u4o&key=03.611919183:46f4e2421e8a9964a50a703bd2201eb7&l10n=en&sortby=tm.order%3Dascending&filter=strict&groupby=attr%3D%22%22.mode%3Dflat.groups-on-page%3D10.docs-in-group%3D1"
     return params
 
 
 # get response from search-request
 def response(resp):
+    logger.debug(resp.text)
     dom = html.fromstring(resp.text)
     results = []
-
     for result in dom.xpath(results_xpath):
         try:
             res = {'url': result.xpath(url_xpath)[0],
@@ -58,7 +65,6 @@ def response(resp):
         except:
             logger.exception('yandex parse crash')
             continue
-
         results.append(res)
 
     return results

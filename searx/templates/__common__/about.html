@@ -1,8 +1,15 @@
 <div{% if rtl %} dir="ltr"{% endif %}>
-    <h1>About <a href="{{ url_for('index') }}">searx</a></h1>
+    <h1>Beezboo</h1>
+    <p>Beezboo est un moteur de recherche caribéen dont l'ambition est de proposer des résultats de recherche plus équitable, basé sur searx, il respecte votre vie privé,
+    comme c'est du logiciel libre l'algorithme de ranking final est connu de tous.
+    Il n'y a pas d'effet bulle, ce qui veut dire que le résultat n'est pas biaisé et est le même pour tous.
+    Pour suivre l'évolution du traffic nous utilisons matomo (opensource) qui ne casse pas le lien entre l'IP et les recherches, une solution sera proposé bientôt pour
+    anonymiser completement les IPs, et les données de recherches par IP vont être effacées tout les mois</p>
 
-    <p>Searx is a <a href="https://en.wikipedia.org/wiki/Metasearch_engine">metasearch engine</a>, aggregating the results of other <a href="{{ url_for('preferences') }}">search engines</a> while not storing information about its users.
-    </p>
+    <h2>About <a href="{{ url_for('index') }}">searx</a></h1>
+
+    <p>Searx is a <a href="https://en.wikipedia.org/wiki/Metasearch_engine">metasearch engine</a>, aggregating the results of other <a href="{{ url_for('preferences') }}">search engines</a> while not storing in$    </p>
+
     <h2>Why use searx?</h2>
     <ul>
         <li>searx may not offer you as personalised results as Google, but it doesn't generate a profile about you</li>

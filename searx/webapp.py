@@ -467,7 +467,7 @@ def index():
 
     Supported outputs: html, json, csv, rss.
     """
-
+    print(request.remote_addr)
     # output_format
     output_format = request.form.get('format', 'html')
     if output_format not in ['html', 'csv', 'json', 'rss']:
